@@ -1,0 +1,129 @@
+/*==========================================================================*/
+/*                       H E A D I N G   T I T L E                          */
+/*==========================================================================*/
+/*==========================================================================*/
+/*                           U T I L I T I E S                              */
+/*==========================================================================*/
+.image-l {
+  float: left;
+  margin: 0 60px 20px 0;
+}
+
+.image-r {
+  float: right;
+  margin: 0 0 20px 60px;
+}
+
+section {
+  margin-bottom: 70px;
+}
+
+section section {
+  margin-bottom: 30px;
+}
+
+section:last-child {
+  margin-bottom: 0;
+}
+
+table {
+  margin-bottom: 30px;
+}
+
+table:last-child {
+  margin-bottom: 0;
+}
+
+.wp-pagenavi,
+.pagination {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 50px;
+}
+.wp-pagenavi span,
+.wp-pagenavi a,
+.pagination span,
+.pagination a {
+  display: inline-flex;
+  min-width: 34px;
+  height: 34px;
+  justify-content: center;
+  align-items: center;
+  font-size: 14px;
+  color: #fff;
+  line-height: 1em;
+  padding: 3px 5px 5px;
+  font-weight: 600;
+  background: #b5b5b5;
+  text-decoration: none;
+  margin: 5px;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  border: none;
+}
+.wp-pagenavi span.current,
+.wp-pagenavi a.current,
+.pagination span.current,
+.pagination a.current {
+  background: var(--color-primary);
+  padding-top: 6px;
+}
+.wp-pagenavi span.prev, .wp-pagenavi span.next,
+.wp-pagenavi a.prev,
+.wp-pagenavi a.next,
+.pagination span.prev,
+.pagination span.next,
+.pagination a.prev,
+.pagination a.next {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+#topic_path {
+  border-top: 1px solid #DDDDDD;
+  border-bottom: 1px solid #DDDDDD;
+  padding: 17px 0;
+}
+#topic_path li {
+  display: inline;
+  font-size: 15px;
+}
+#topic_path li:not(:last-child) {
+  --arrow-height: 6px;
+  padding-right: 15px;
+  margin-right: var(--arrow-height);
+  position: relative;
+}
+#topic_path li:not(:last-child):before {
+  content: "";
+  width: 0;
+  height: 0;
+  border-top: 4px solid transparent;
+  border-bottom: 4px solid transparent;
+  border-left: var(--arrow-height) solid var(--body-color);
+  position: absolute;
+  right: -1px;
+  top: calc(50% - var(--arrow-height) / 2);
+}
+#topic_path a {
+  font-weight: 500;
+}
+
+/*==========================================================================*/
+/*                             C O N T E N T                                */
+/*==========================================================================*/
+.content {
+  padding: 50px 0;
+}
+
+/*==========================================================================*/
+/*                 F O R   S P E C I F I E D   B R O W S E R                */
+/*==========================================================================*/
+/* EDGE  */
+/* FIREFOX */
+@-moz-document url-prefix() {}
+/* Safari 10.1+ (which is the latest version of Safari at this time) */
+
+/*# sourceMappingURL=under.css.map */

@@ -1,0 +1,46 @@
+/*==========================================================================*/
+/*                              F O O T E R                                 */
+/*==========================================================================*/
+
+.iFooter{
+	position: relative;
+	background-color: #333;
+	padding: 50px 0;
+	border-top: 1px solid #fff;
+	&--link{
+		position: relative;
+		display: flex;
+		margin: 0 0;
+		display: flex;
+		justify-content: center;
+		gap: 40px;
+		margin-bottom: 50px;
+		li{
+			position: relative;
+		}
+		a{
+			position: relative;
+			text-transform: uppercase;
+			color: #fff;
+			text-decoration: none;
+			font-family: "FatFrank";
+			font-size: 20px;
+		}
+	}
+	&--logo{
+		position: relative;
+		display: flex;
+		justify-content: center;
+		margin-bottom: 20px;
+		img{
+			height: 60px;
+		}
+	}
+	&--copyright{
+		position: relative;
+		text-align: center;
+		color: #fff;
+		font-family: "FatFrank";
+		font-size: 15px;
+	}
+}

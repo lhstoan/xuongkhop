@@ -1,0 +1,157 @@
+/*==========================================================================*/
+/*                     H O V E R    &    P C    O N L Y                     */
+/*==========================================================================*/
+
+@media screen and (min-width: 1921px) {
+    .to-top {
+        right: calc(50% - 960px + 20px);
+    }
+}
+
+/* END screen-min:1921px */
+
+@media screen and (min-width: 751px) {
+
+    #lightboxOverlay,
+    #lightbox {
+        min-width: var(--content-width) !important;
+        width: 100% !important;
+    }
+
+    .sp {
+        display: none !important;
+    }
+
+    a:hover {
+        text-decoration: none;
+    }
+
+    .to-top a:hover {
+        opacity: 0.7;
+    }
+
+    .menu-hd-list {
+        display: flex;
+        align-items: center;
+
+        >li {
+            font-size: 18px;
+            font-weight: 600;
+            position: relative;
+
+            >a {
+                font-size: 18px;
+                font-weight: 600;
+                color: var(--body-color);
+                height: 100%;
+                text-decoration: none;
+                position: relative;
+
+                &:hover {
+                    color: var(--color-primary);
+                }
+            }
+
+            &:hover {
+                color: var(--color-primary);
+
+                &::before {
+                    border-color: var(--color-primary);
+                }
+            }
+
+            &:not(:last-child) {
+                @include forward(margin-right, 30, 50, 1560, 1920);
+                // @include reverse(margin-right, 50, 30, 1560, 1920);
+            }
+        }
+
+        .has-sub {
+            padding-bottom: 20px;
+            margin-top: 20px;
+        }
+
+        .sub {
+            width: 280px;
+            text-align: center;
+            background: var(--color-primary);
+            color: #fff;
+            position: absolute;
+            left: 50%;
+            transform: translate(-50%, 15px);
+            pointer-events: none;
+            top: 40px;
+            transition: all .3s ease;
+            visibility: hidden;
+            opacity: 0;
+
+            a {
+                display: inline-block;
+                width: 100%;
+                font-size: 16px;
+                padding: 15px 10px;
+                color: #fff;
+                text-decoration: none;
+            }
+
+            li {
+                position: relative;
+
+                &:not(:last-child) {
+                    border-bottom: 1px solid #fff;
+                }
+            }
+        }
+    }
+
+    .menu-hd {
+        margin-left: auto;
+
+        .has-sub {
+            &:hover {
+                .sub {
+                    transform: translate(-50%, 0);
+                    visibility: visible;
+                    pointer-events: auto;
+                    opacity: 1;
+                }
+            }
+        }
+
+        .sub {
+            >li {
+                transition: all .2s;
+
+                &:hover {
+                    opacity: .8;
+                }
+            }
+        }
+    }
+
+    .sticky-sidebar {
+        .sticky-it {
+            &:hover {
+                transform: translateX(0);
+            }
+        }
+    }
+}
+
+/* END screen-min:751px */
+
+
+
+@media screen and (min-width: 751px) and (max-width: 1919px) {}
+
+/* END screen-min:751px && screen-max:1919px */
+
+
+@media screen and (min-width: 751px) and (max-width: 1650px) {}
+
+/* END screen-min:751px && screen-max:1650px */
+
+
+@media screen and (min-width: 751px) and (max-width: 1440px) {}
+
+/* END screen-min:751px && screen-max:1440px */

@@ -1,0 +1,303 @@
+@import './functions';
+
+$zen: var(--font-zen);
+$cor: var(--font-cor);
+$main-cl: var(--color-primary); //#088534
+$main-cl2: var(--color-secondary); //#FFFF57
+
+@mixin size($width, $height: $width) {
+   width: $width;
+   height: $height;
+}
+
+@mixin text-verticle($direction: rl) {
+   @if ($direction ==lr) {
+      -webkit-writing-mode: vertical-lr;
+      -moz-writing-mode: vertical-lr;
+      -ms-writing-mode: vertical-lr;
+      writing-mode: vertical-lr;
+      -ms-writing-mode: tb-lr;
+   }
+
+   @else {
+      -webkit-writing-mode: vertical-rl;
+      -moz-writing-mode: vertical-rl;
+      -ms-writing-mode: vertical-rl;
+      writing-mode: vertical-rl;
+      -ms-writing-mode: tb-rl;
+   }
+
+   -webkit-text-orientation: mixed;
+   -moz-text-orientation: mixed;
+   -ms-text-orientation: mixed;
+   text-orientation: mixed;
+}
+
+@mixin pseudo($direction-a: top, $direction-b: left, $content: "") {
+   content: $content;
+   position: absolute;
+   z-index: 1;
+
+   @if ($direction-a ==top and $direction-b ==right) {
+      top: 0;
+      right: 0;
+   }
+
+   @else if ($direction-a ==bottom and $direction-b ==left) {
+      bottom: 0;
+      left: 0;
+   }
+
+   @else if ($direction-a ==bottom and $direction-b ==right) {
+      bottom: 0;
+      right: 0;
+   }
+
+   @else {
+      left: 0;
+      top: 0;
+   }
+}
+
+@mixin pseudo-center($position: "") {
+   content: "";
+   position: absolute;
+   z-index: 1;
+
+   @if ($position ==left) {
+      top: 50%;
+      left: 0%;
+      transform: translate(0%, -50%);
+   }
+
+   @else if($position ==right) {
+      top: 50%;
+      right: 0%;
+      transform: translate(0%, -50%);
+   }
+
+   @else if($position ==top) {
+      top: 0%;
+      left: 50%;
+      transform: translate(-50%, 0%);
+   }
+
+   @else if($position ==bottom) {
+      bottom: 0%;
+      left: 50%;
+      transform: translate(-50%, 0%);
+   }
+
+   @else {
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+   }
+}
+
+@mixin pseudo-full($z-index: 1) {
+   content: "";
+   position: absolute;
+   z-index: $z-index;
+   top: 0;
+   left: 0;
+   @include size(100%);
+}
+
+@mixin arrow($color: #333, $width: 10px, $height: $width, $direction: down) {
+   @include size(0);
+
+   @if ($direction ==left) {
+      border-top: calc($width / 2) solid transparent;
+      border-bottom: calc($width / 2) solid transparent;
+      border-right: $height solid $color;
+   }
+
+   @else if ($direction ==right) {
+      border-top: calc($width / 2) solid transparent;
+      border-bottom: calc($width / 2) solid transparent;
+      border-left: $height solid $color;
+   }
+
+   @else if ($direction ==top) {
+      border-left: calc($width / 2) solid transparent;
+      border-right: calc($width / 2) solid transparent;
+      border-bottom: $height solid $color;
+   }
+
+   @else {
+      border-left: calc($width / 2) solid transparent;
+      border-right: calc($width / 2) solid transparent;
+      border-top: $height solid $color;
+   }
+}
+
+@mixin border-arrow($color: #333, $width: 10, $size: 3px, $direction: right) {
+   @include size(calc($width / 100 * 70.725 * 1px));
+   transform: rotate(45deg);
+
+   @if ($direction ==left) {
+      border-bottom: solid $size $color;
+      border-left: solid $size $color;
+   }
+
+   @else if ($direction ==top) {
+      border-top: solid $size $color;
+      border-left: solid $size $color;
+   }
+
+   @else if ($direction ==bottom) {
+      border-bottom: solid $size $color;
+      border-right: solid $size $color;
+   }
+
+   @else {
+      border-top: solid $size $color;
+      border-right: solid $size $color;
+   }
+}
+
+
+@mixin corner-arrow($color: #333, $width: 10px, $height: $width, $direction-a: bottom, $direction-b: right) {
+   @include size(0);
+
+   @if ($direction-a ==top and $direction-b ==left) {
+      border-left: $width solid $color;
+      border-bottom: $height solid transparent;
+   }
+
+   @else if ($direction-a ==top and $direction-b ==right) {
+      border-right: $width solid $color;
+      border-bottom: $height solid transparent;
+   }
+
+   @else if ($direction-a ==bottom and $direction-b ==left) {
+      border-left: $width solid $color;
+      border-top: $height solid transparent;
+   }
+
+   @else {
+      border-right: $width solid $color;
+      border-top: $height solid transparent;
+   }
+}
+
+@mixin circle($size: 10px, $color: #333) {
+   @include size($size);
+   background: $color;
+   border-radius: 50%;
+}
+
+@mixin text-truncate($line: 1) {
+   @if ($line !=1) {
+      display: -webkit-box;
+      -webkit-line-clamp: $line;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+   }
+
+   @else {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+   }
+}
+
+@mixin stroke($color, $width: 1px) {
+   $width: $width + 0;
+   $shadow: 0 0 0 transparent;
+   $i: 0;
+   $w: 1;
+
+   @while ($i < $width) {
+      $i: $i + 1;
+      $j: 0;
+      $w: $w + 2;
+
+      @for $r from 1 through $w {
+         @for $c from 1 through $w {
+            $x: $c - ceil($w / 2);
+            $y: $r - ceil($w / 2);
+
+            $shadow: #{$shadow},
+               #{$x}px #{$y}px 0 $color;
+         }
+      }
+   }
+
+   text-shadow: $shadow;
+}
+
+@mixin aspect-ratio($width, $ratio, $scale: 1) {
+   $list: split-str($ratio, '-');
+   $width-number: nth($list, 1);
+   $height-number: nth($list, 2);
+   width: calc($width / $scale);
+   height: calc($width * (#{$height-number} / #{$width-number}) / $scale);
+}
+
+@mixin select-last-row($column) {
+   $selector: "";
+
+   @for $i from 1 through $column {
+      @for $j from 1 through $i {
+         $comma: ",";
+         $reverse: (
+            $i + 1) - $j;
+
+         @if $i ==$column and $j ==$column {
+            $comma: "";
+         }
+
+         $selector: $selector + "&:nth-child(" + $column + "n + " + $j + "):nth-last-child(" + $reverse + ")" + $comma;
+      }
+   }
+
+   #{$selector} {
+      @content;
+   }
+}
+
+@mixin col($col, $mright, $mbottom) {
+   width: calc((100% / $col) - ($mright / $col * ($col - 1))
+   );
+margin-right: $mright;
+margin-bottom: $mbottom;
+
+&:nth-child(#{$col}n + #{$col}) {
+   margin-right: 0;
+}
+
+@include select-last-row($col) {
+   margin-bottom: 0;
+}
+}
+
+@mixin link($z-index: 2) {
+   content: "";
+   position: absolute;
+   z-index: $z-index;
+   top: 0;
+   left: 0;
+   @include size(100%);
+}
+
+
+@mixin forward($property, $minvalue, $maxvalue, $minv, $maxv, $character: '', $view: vw) {
+   --min-value#{$character}: #{$minvalue};
+   --max-value#{$character}: #{$maxvalue};
+   --min-v#{$character}: #{$minv};
+   --max-v#{$character}: #{$maxv};
+   --value#{$character}: max(min(calc((var(--max-value#{$character}) - var(--min-value#{$character})) * ((100#{$view} - var(--min-v#{$character}) * 1px) / (var(--max-v#{$character}) - var(--min-v#{$character}))) + calc(var(--min-value#{$character}) * 1px)), calc(var(--max-value#{$character}) * 1px)), calc(var(--min-value#{$character}) * 1px));
+   #{$property}: var(--value#{$character});
+}
+
+
+@mixin reverse($property, $minvalue, $maxvalue, $minv, $maxv, $character: '', $view: vw) {
+   --min-value#{$character}: #{$minvalue};
+   --max-value#{$character}: #{$maxvalue};
+   --min-v#{$character}: #{$minv};
+   --max-v#{$character}: #{$maxv};
+   --value#{$character}: max(var(--max-value#{$character}) * 1px, min(calc(var(--max-value#{$character}) * 1px + (var(--min-value#{$character}) - var(--max-value#{$character})) * ((100#{$view} - var(--max-v#{$character}) * 1px) / (var(--min-v#{$character}) - var(--max-v#{$character})))), var(--min-value#{$character}) * 1px));
+   #{$property}: var(--value#{$character});
+}

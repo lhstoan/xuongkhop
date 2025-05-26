@@ -1,0 +1,38 @@
+/*==========================================================================*/
+/*                     H O V E R    &    P C    O N L Y                     */
+/*==========================================================================*/
+@media screen and (min-width: 751px) {
+  .wp-pagenavi a:hover,
+  .pagination a:hover {
+    opacity: 0.8;
+  }
+}
+/* END screen-min:751px */
+/* END screen-min:751px && screen-max:1500px */
+/*==========================================================================*/
+/*                        M O B I L E    D E V I C E                        */
+/*==========================================================================*/
+@media screen and (min-width: 1px) and (max-width: 750px) {
+  .image-l,
+  .image-r {
+    float: none;
+    text-align: center;
+    margin: 0 0 25px;
+  }
+}
+/* END min-width:1px && screen-max:750px */
+/* END min-width:375px && screen-max:750px */
+/* END min-width:425px && screen-max:750px */
+/* END min-width:525px && screen-max:750px */
+/*==========================================================================*/
+/*                 F O R   S P E C I F I E D   B R O W S E R                */
+/*==========================================================================*/
+/* EDGE  */
+/* FIREFOX */
+@-moz-document url-prefix() {}
+/* Safari 10.1+ (which is the latest version of Safari at this time) */
+/*==========================================================================*/
+/*                             E N D   A L L                                */
+/*==========================================================================*/
+
+/*# sourceMappingURL=under_responsive.css.map */
