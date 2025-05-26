@@ -11,6 +11,7 @@
     --text-line-height: 1.8em;
     --font-family: 'Noto Sans JP', sans-serif;
     --font-serif: 'Noto Serif JP', serif;
+    --font-xk: 'UTM Kabel KT';
     --body-color: #333333;
 }
 
@@ -118,7 +119,11 @@ button {
     box-sizing: border-box;
     outline: none;
 }
-
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 /*==========================================================================*/
 /*                              G L O B A L                                 */
 /*==========================================================================*/
@@ -234,6 +239,16 @@ body#tinymce {
     src: url('/fonts/FatFrank-Heavy.woff') format('woff2'),
         url('/fonts/FatFrank-Heavy.woff') format('woff');
     font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+
+@font-face {
+    font-family: 'UTM Kabel KT';
+    src: url('/fonts/UTMKabelKT.woff2') format('woff2'),
+        url('/fonts/UTMKabelKT.woff') format('woff');
+    font-weight: normal;
     font-style: normal;
     font-display: swap;
 }

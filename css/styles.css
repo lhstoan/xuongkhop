@@ -24,6 +24,7 @@
   --text-line-height: 1.8em;
   --font-family: "Noto Sans JP", sans-serif;
   --font-serif: "Noto Serif JP", serif;
+  --font-xk: "UTM Kabel KT";
   --body-color: #333333;
 }
 
@@ -132,6 +133,12 @@ button {
   outline: none;
 }
 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 /*==========================================================================*/
 /*                              G L O B A L                                 */
 /*==========================================================================*/
@@ -234,6 +241,13 @@ body#tinymce {
   font-family: "FatFrank";
   src: url("/fonts/FatFrank-Heavy.woff") format("woff2"), url("/fonts/FatFrank-Heavy.woff") format("woff");
   font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "UTM Kabel KT";
+  src: url("/fonts/UTMKabelKT.woff2") format("woff2"), url("/fonts/UTMKabelKT.woff") format("woff");
+  font-weight: normal;
   font-style: normal;
   font-display: swap;
 }
@@ -769,15 +783,32 @@ header {
   display: flex;
   align-items: center;
   justify-content: center;
+  gap: 10px;
 }
 .iHeader--logo img {
-  height: 50px;
+  height: 80px;
+}
+.iHeader--logo .title {
+  position: relative;
+}
+.iHeader--logo .title h1 {
+  position: relative;
+  margin: 0 0;
+  font-family: var(--font-xk);
+  font-size: 45px;
+  color: #fff;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
 }
 .iHeader--menu {
   position: relative;
   display: flex;
   align-items: center;
   height: 100%;
+  gap: 20px;
+}
+.iHeader--menu a {
+  font-family: var(--font-xk);
 }
 .iHeader--menu ul {
   position: relative;
@@ -793,7 +824,7 @@ header {
   text-transform: uppercase;
   display: inline-block;
   text-decoration: none;
-  font-family: "FatFrank";
+  font-family: var(--font-xk);
   font-weight: 400;
   font-style: normal;
   font-size: 20px;
@@ -894,7 +925,7 @@ main {
 
 .iList {
   position: relative;
-  padding: 70px 0;
+  padding: 0px 0 70px;
 }
 .iList.bg2 {
   background-color: #111111;
@@ -921,8 +952,10 @@ main {
 .iList--main {
   position: relative;
   display: flex;
+  justify-content: center;
   --gap: 10px;
   gap: var(--gap);
+  --row: 3;
 }
 .iList--main.async {
   flex-wrap: wrap;
@@ -931,39 +964,24 @@ main {
 .iList--main li {
   position: relative;
   width: calc(25% - var(--gap));
-  overflow: hidden;
   transition: all 0.3s ease-in-out;
   line-height: 1em;
   display: flex;
   flex-direction: column;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
+  border-radius: 10px;
+  background-image: url(../../images/bgCard.svg);
+  background-size: 200%;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 .iList--main li * {
   transition: all 0.3s ease-in-out;
 }
 .iList--main li img {
   object-fit: cover;
-}
-.iList--main li::before {
-  position: absolute;
-  content: "";
-  width: 100%;
-  height: 100%;
-  border: 4px solid #e8da5d;
-  top: 0;
-  left: 0;
-  opacity: 0;
-  transition: all 0.3s ease-in-out;
-  z-index: 1;
-}
-.iList--main li:hover {
-  transition: all 0.3s ease-in-out;
-}
-.iList--main li:hover::before {
-  opacity: 0.8;
-}
-.iList--main li:hover img {
-  transform: scale(1.1);
-  transition: all 0.3s ease-in-out;
 }
 .iList--btn {
   position: relative;
@@ -972,27 +990,104 @@ main {
 .iList--img {
   position: relative;
   width: 100%;
+  border-radius: 20px;
+}
+.iList--img::before {
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 100%;
+  top: -8%;
+  left: 17px;
+  opacity: 1;
+  transition: all 0.3s ease-in-out;
+  z-index: 10;
+  background-image: url(../../images/shiba.svg);
+  background-size: 60px;
+  background-position: right top;
+  background-repeat: no-repeat;
+  pointer-events: none;
+}
+.iList--img::after {
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 100%;
+  top: -4%;
+  left: -10px;
+  opacity: 1;
+  transition: all 0.3s ease-in-out;
+  z-index: 10;
+  background-image: url(../../images/non-la.svg);
+  background-size: 60px;
+  background-position: left top;
+  background-repeat: no-repeat;
+  pointer-events: none;
 }
 .iList--img img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  border-radius: inherit;
+}
+.iList--img .pin {
+  position: absolute;
+  left: 50%;
+  width: 100%;
+  text-align: center;
+  transform: translateX(-50%);
+  z-index: 10;
+  bottom: 0;
+  padding-bottom: 10px;
+  font-family: var(--font-xk);
+  font-size: 30px;
+  color: #fff;
+  height: 30%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0 0 20px 20px;
+  letter-spacing: 0.2em;
+}
+.iList--img .pin span {
+  z-index: 10;
+}
+.iList--img .pin::before {
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to top, #000 40%, rgba(0, 0, 0, 0));
+  left: 0;
+  top: 0;
+  border-radius: inherit;
+  z-index: 0;
 }
 .iList--name {
   position: relative;
   width: 100%;
-  background-color: #fff;
 }
 .iList--name h4 {
   position: relative;
   color: #333;
   text-align: center;
-  font-size: 18px;
-  padding: 10px;
+  font-size: 30px;
+  text-transform: uppercase;
   line-height: 1.4em;
-  font-family: "FatFrank";
+  font-family: var(--font-xk);
   letter-spacing: 0.1em;
   margin-bottom: 0;
+  margin-top: 15px;
+}
+.iList--name .role {
+  position: relative;
+  width: 100%;
+  text-align: center;
+  display: block;
+  font-family: var(--font-family);
+  color: #717e89;
+  font-weight: bold;
+  font-size: 18px;
 }
 
 .linkfull {
@@ -1052,13 +1147,36 @@ main {
 .iDetail {
   position: relative;
 }
+.iDetail--wrap {
+  position: relative;
+  display: flex;
+  max-width: 1200px;
+  --img: 320px;
+  gap: 40px;
+  padding: 40px 0;
+}
 .iDetail--img {
   position: relative;
-  padding: 80px 0;
   text-align: center;
+  width: var(--img);
 }
 .iDetail--img img {
   max-height: 450px;
+}
+.iDetail--content {
+  position: relative;
+  width: calc(100% - var(--img) - 40px);
+}
+.iDetail--date {
+  position: relative;
+}
+.iDetail--date-main {
+  position: relative;
+  display: flex;
+  font-size: 30px;
+  gap: 10px;
+  font-family: var(--font-xk);
+  text-transform: uppercase;
 }
 .iDetail--link {
   position: relative;
@@ -1116,6 +1234,59 @@ main {
   margin-left: auto;
   margin-right: auto;
 }
+.iDetail--racket {
+  position: relative;
+  background-color: #111111;
+  padding: 40px 0;
+}
+.iDetail--racket h4 {
+  position: relative;
+  color: #fff;
+  font-family: var(--font-xk);
+  text-transform: uppercase;
+  font-size: 30px;
+  text-align: center;
+  margin-bottom: 50px;
+}
+.iDetail--racket h4 span {
+  position: relative;
+  display: inline-block;
+  padding: 0 60px;
+  background-image: url(../../images/racket.svg), url(../../images/racket.svg);
+  background-size: 40px;
+  background-position: left center, right center;
+  background-repeat: no-repeat;
+}
+.iDetail--racket-wrap {
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 1200px;
+}
+.iDetail--racket-list {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+.iDetail--racket-list li {
+  width: calc(33.3333333333% - 20px);
+  position: relative;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.iDetail--racket-list li .img {
+  position: relative;
+  border-radius: inherit;
+}
+.iDetail--racket-list li .img img {
+  border-radius: inherit;
+}
 
 .marquee {
   overflow: hidden;
@@ -1130,7 +1301,109 @@ main {
   display: block;
   font-size: 40px;
   text-transform: uppercase;
+  font-family: var(--font-xk);
   letter-spacing: 0.04em;
+}
+
+.iMember {
+  position: relative;
+  padding: 40px 15px 0;
+}
+.iMember--h3 {
+  position: relative;
+  text-align: center;
+  font-family: var(--font-xk);
+  font-size: 50px;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.iMember--h3 span {
+  position: relative;
+  padding: 0 60px;
+  display: inline-block;
+}
+.iMember--h3 span::before, .iMember--h3 span::after {
+  position: absolute;
+  content: "";
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-size: 40px;
+  background-repeat: no-repeat;
+}
+.iMember--h3 span::before {
+  left: 0;
+  background-image: url(../../images/icon-badminton-left.svg);
+  background-position: left center;
+}
+.iMember--h3 span::after {
+  right: 0;
+  background-image: url(../../images/icon-badminton-right.svg);
+  background-position: right center;
+}
+
+table {
+  font-family: var(--font-xk);
+}
+table tr,
+table td,
+table th {
+  border: none;
+  font-family: var(--font-family);
+}
+table th {
+  background-color: #006476;
+  color: #fff;
+}
+table tr {
+  border-bottom: 1px solid #fff;
+}
+table tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+table tr:nth-child(odd) {
+  background-color: #e3e3e3;
+}
+
+.iVideo {
+  position: relative;
+  padding-bottom: 50px;
+}
+.iVideo--wrap {
+  position: relative;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.iVideo--list {
+  position: relative;
+  display: flex;
+  gap: 10px;
+  flex-direction: column;
+}
+.iVideo--list li {
+  position: relative;
+  --img: 500px;
+  display: flex;
+  gap: 20px;
+  background-color: #fff;
+  padding: 10px;
+}
+.iVideo--list li .thumbnail {
+  position: relative;
+  width: var(--img);
+  aspect-ratio: 16/9;
+  overflow: hidden;
+}
+.iVideo--list li .content {
+  position: relative;
+  width: calc(100% - var(--img) - 20px);
+}
+.iVideo--list li .content h5 {
+  position: relative;
+  font-family: var(--font-xk);
 }
 
 /*==========================================================================*/

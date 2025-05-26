@@ -28,8 +28,23 @@ header {
 		display: flex;
 		align-items: center;
 		justify-content: center;
+		gap: 10px;
+
 		img{
-			height: 50px;
+			height: 80px;
+		}
+		.title{
+			position: relative;
+		
+			h1{
+				position: relative;
+				margin: 0 0;
+				font-family: var(--font-xk);
+				font-size: 45px;
+				color: #fff;
+				letter-spacing: 0.04em;
+				text-transform: uppercase;
+			}
 		}
 	}
 	&--menu {
@@ -37,6 +52,10 @@ header {
 		display: flex;
 		align-items: center;
 		height: 100%;
+		gap: 20px;
+		a{
+				font-family: var(--font-xk);
+		}
 		ul {
 			position: relative;
 			display: flex;
@@ -50,7 +69,7 @@ header {
 					text-transform: uppercase;
 					display: inline-block;
 					text-decoration: none;
-					font-family: 'FatFrank';
+					font-family: var(--font-xk);
 					font-weight: 400;
 					font-style: normal;
 					font-size: 20px;
