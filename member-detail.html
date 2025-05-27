@@ -89,9 +89,6 @@
 				</div>
 				<div class="iDetail--wrap">
 					<div class="iDetail--info">
-						<!-- <div class="iDetail--info-gender">
-							<span>Nam</span>
-						</div> -->
 						<div class="iDetail--info-name">
 							<span class="firstName">Lê Huỳnh</span>
 							<span class="lastName">Song Toàn</span>
@@ -129,10 +126,14 @@
 										</dd>
 									</dl>
 								</div>
-								<div class="iDetail--info-list" id="dayformember">
-									<dl class="group col">
-										<dt><span>Tổng số ngày</span><span>Khoảng thời gian</span></dt>
-										<dd><span>100</span><span>1 M 3 D</span></dd>
+								<div class="iDetail--info-list">
+									<dl>
+										<dt>Tổng số ngày</dt>
+										<dd id="dayformember">100</dd>
+									</dl>
+									<dl>
+										<dt>Khoảng thời gian</dt>
+										<dd id="dayForDetail">100</dd>
 									</dl>
 								</div>
 							</div>
@@ -237,35 +238,43 @@
 		const month = document.querySelector('.iDetail--date-main .month').textContent;
 		const year = document.querySelector('.iDetail--date-main .year').textContent;
 
-		// Tạo đối tượng ngày gia nhập (lưu ý: tháng trong JS tính từ 0)
 		const joinedDate = new Date(year, month - 1, day);
 		const currentDate = new Date();
 
-		// Tính số ngày đã trôi qua
 		const msPerDay = 1000 * 60 * 60 * 24;
 		const diffInMs = currentDate - joinedDate;
 		const totalDays = Math.floor(diffInMs / msPerDay);
 
-		// Tính số năm, tháng, ngày chênh lệch
-		let years = currentDate.getFullYear() - joinedDate.getFullYear();
-		let months = currentDate.getMonth() - joinedDate.getMonth();
-		let days = currentDate.getDate() - joinedDate.getDate();
+		let years = 0, months = 0, days = 0;
 
-		if (days < 0) {
-			months -= 1;
-			const prevMonth = new Date(currentDate.getFullYear(), currentDate.getMonth(), 0);
-			days += prevMonth.getDate();
+		if (totalDays >= 0) {
+			years = currentDate.getFullYear() - joinedDate.getFullYear();
+			months = currentDate.getMonth() - joinedDate.getMonth();
+			days = currentDate.getDate() - joinedDate.getDate();
+
+			if (days < 0) {
+				months -= 1;
+				const prevMonth = new Date(currentDate.getFullYear(), currentDate.getMonth(), 0);
+				days += prevMonth.getDate();
+			}
+
+			if (months < 0) {
+				years -= 1;
+				months += 12;
+			}
 		}
 
-		if (months < 0) {
-			years -= 1;
-			months += 12;
-		}
+		let parts = [];
+		if (years > 0) parts.push(`${years} năm`);
+		if (months > 0) parts.push(`${months} tháng`);
+		if (days > 0) parts.push(`${days} ngày`);
+		if (parts.length === 0) parts.push('0 ngày');
 
 		// Hiển thị kết quả
-		const infoList = document.querySelector('#dayformember dd');
-		infoList.children[0].textContent = totalDays;
-		infoList.children[1].textContent = `${years} năm ${months} tháng ${days} ngày`;
+		const dayformember = document.querySelector('#dayformember');
+		const dayForDetail = document.querySelector('#dayForDetail');
+		dayformember.textContent = totalDays >= 0 ? `${totalDays} ngày` : "Bạn đến tương lai ?";
+		dayForDetail.textContent = parts.join(' ');
 	</script>
 </body>
 

@@ -1165,6 +1165,7 @@ main {
   gap: 40px;
   padding: 40px 0;
   align-items: center;
+  min-height: calc(100vh - 200px);
 }
 .iDetail--img {
   position: relative;
@@ -1294,6 +1295,7 @@ main {
   font-size: 20px;
   color: #717e89;
   font-family: var(--font-family);
+  text-transform: uppercase;
 }
 .iDetail--date-main dl dd {
   position: relative;
