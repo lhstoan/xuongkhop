@@ -1,18 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&family=Meow+Script&display=swap');
+
 :root {
-    --content-width: 1260px;
-    --font-yugothic: "游ゴシック体", "Yu Gothic", YuGothic, sans-serif;
-    --font-yumincho: "游明朝", YuMincho, "ヒラギノ明朝 ProN W3", "Hiragino Mincho ProN", "HG明朝B", serif;
-    --font-meiryo: "Meiryo UI", Meiryo, メイリオ, Osaka, "MS PGothic", arial, helvetica, sans-serif;
-    --font-arial: Arial, Helvetica, sans-serif;
-    --color-primary: #e00327;
-    --color-secondary: #e00327;
-    --color-black: #333333;
-    --color-gray: #cccccc;
-    --text-line-height: 1.8em;
-    --font-family: 'Noto Sans JP', sans-serif;
-    --font-serif: 'Noto Serif JP', serif;
-    --font-xk: 'UTM Kabel KT';
-    --body-color: #333333;
+	--content-width: 1260px;
+	--color-primary: #e00327;
+	--color-secondary: #e00327;
+	--color-black: #333333;
+	--color-gray: #cccccc;
+	--text-line-height: 1.8em;
+	--font-family: "Comfortaa", sans-serif;
+	--font-draw:"Meow Script", cursive;
+	--font-xk: "UTM Kabel KT";
+	--body-color: #333333;
 }
 
 h1,
@@ -34,9 +32,9 @@ address,
 li,
 dt,
 dd {
-    font-size: 160%;
-    -webkit-text-size-adjust: none;
-    font-family: var(--font-family);
+	font-size: 160%;
+	-webkit-text-size-adjust: none;
+	font-family: var(--font-family);
 }
 
 input[type="text"],
@@ -45,17 +43,17 @@ input[type="tel"],
 input[type="number"],
 textarea,
 select {
-    width: 100%;
-    border: solid 1px #999999;
-    padding: 10px;
+	width: 100%;
+	border: solid 1px #999999;
+	padding: 10px;
 }
 
 textarea {
-    resize: vertical;
+	resize: vertical;
 }
 
 ::placeholder {
-    opacity: 0.5;
+	opacity: 0.5;
 }
 
 h1,
@@ -64,95 +62,95 @@ h3,
 h4,
 h5,
 h6 {
-    line-height: 1.6em;
-    font-weight: 700;
-    margin-bottom: 0.5em;
+	line-height: 1.6em;
+	font-weight: 700;
+	margin-bottom: 0.5em;
 }
 
 a {
-    color: var(--color-primary);
-    font-family: var(--font-family);
-    transition: all 0.2s;
+	color: var(--color-primary);
+	font-family: var(--font-family);
+	transition: all 0.2s;
 }
 
 select {
-    visibility: visible !important;
+	visibility: visible !important;
 }
 
 [href^="tel:"] {
-    word-break: keep-all;
-    white-space: nowrap;
+	word-break: keep-all;
+	white-space: nowrap;
 }
 
 img {
-    vertical-align: middle;
-    max-width: 100%;
-    flex-shrink: 0;
-    height: auto;
-    object-fit: cover;
+	vertical-align: middle;
+	max-width: 100%;
+	flex-shrink: 0;
+	height: auto;
+	object-fit: cover;
 }
 
 table {
-    width: 100%;
+	width: 100%;
 }
 
 p {
-    margin-bottom: 1.85em;
-    line-height: 1.8em;
+	margin-bottom: 1.85em;
+	line-height: 1.8em;
 }
 
 p:last-child {
-    margin-bottom: 0;
+	margin-bottom: 0;
 }
 
 button {
-    cursor: pointer;
-    border: solid 1px #333;
-    border-radius: 0;
-    outline: none;
-    box-shadow: none;
+	cursor: pointer;
+	border: solid 1px #333;
+	border-radius: 0;
+	outline: none;
+	box-shadow: none;
 }
 
 *,
 ::before,
 ::after {
-    box-sizing: border-box;
-    outline: none;
+	box-sizing: border-box;
+	outline: none;
 }
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
 }
 /*==========================================================================*/
 /*                              G L O B A L                                 */
 /*==========================================================================*/
 
 html {
-    background: #fff;
+	background: #fff;
 }
 
 body {
-    min-width: 320px;
-    -webkit-text-size-adjust: none;
-    color: var(--body-color);
+	min-width: 320px;
+	-webkit-text-size-adjust: none;
+	color: var(--body-color);
 	font-family: "FatFrank";
 }
 
 #wrapper {
-    min-width: var(--content-width);
-    margin: 0 auto;
-    overflow: hidden;
-    max-width: 1920px;
+	min-width: var(--content-width);
+	margin: 0 auto;
+	overflow: hidden;
+	max-width: 1920px;
 }
 
 .inner {
-    width: var(--content-width);
-    max-width: 100%;
-    margin-left: auto;
-    margin-right: auto;
-    padding-left: 15px;
-    padding-right: 15px;
+	width: var(--content-width);
+	max-width: 100%;
+	margin-left: auto;
+	margin-right: auto;
+	padding-left: 15px;
+	padding-right: 15px;
 }
 
 /*==========================================================================*/
@@ -160,96 +158,96 @@ body {
 /*==========================================================================*/
 
 .customize-support {
-    header {
-        margin-top: 32px;
-    }
+	header {
+		margin-top: 32px;
+	}
 }
 
 @media screen and (max-width: 782px) {
-    .customize-support {
-        header {
-            margin-top: 46px !important;
-        }
-    }
+	.customize-support {
+		header {
+			margin-top: 46px !important;
+		}
+	}
 }
 
 @media screen and (max-width: 600px) {
-    .customize-support {
-        header {
-            margin-top: 0px !important;
-        }
-    }
+	.customize-support {
+		header {
+			margin-top: 0px !important;
+		}
+	}
 }
-
-
 
 #wpadminbar .show-template-name,
 #wpadminbar .hover .show-template-name {
-    text-shadow: none;
+	text-shadow: none;
 }
 
 #wpadminbar #wp-admin-bar-included_files_path .ab-item {
-    height: auto;
-    padding-bottom: 1rem;
+	height: auto;
+	padding-bottom: 1rem;
 }
 
 #wpadminbar #wp-admin-bar-included_files_path .ab-item div {
-    font-family: monospace;
-    text-shadow: none;
-    color: #fff;
+	font-family: monospace;
+	text-shadow: none;
+	color: #fff;
 }
 
 #wpadminbar .hover .show-template-name:hover {
-    color: #2ea2cc;
+	color: #2ea2cc;
 }
 
 #wpadminbar #wp-admin-bar-included_files_path .ab-item #included-files-list li {
-    line-height: 1.5;
+	line-height: 1.5;
 }
 
-#wpadminbar #wp-admin-bar-included_files_path .ab-item #included-files-list li:hover {
-    color: #2ea2cc;
+#wpadminbar
+	#wp-admin-bar-included_files_path
+	.ab-item
+	#included-files-list
+	li:hover {
+	color: #2ea2cc;
 }
 
 #wpadminbar #included-files-list {
-    margin-left: 20px;
+	margin-left: 20px;
 }
 
 #wp-admin-bar-show_template_file_name_on_top-default {
-    max-height: 90vh;
-    overflow-x: hidden;
+	max-height: 90vh;
+	overflow-x: hidden;
 }
 
 #included-files-fie-on-wp-footer {
-    display: none;
+	display: none;
 }
 
 #wpadminbar #wp-admin-bar-aioseo-main .aioseo-logo {
-    display: inline-block !important;
-    height: 23px !important;
-    transform: translateY(6px);
+	display: inline-block !important;
+	height: 23px !important;
+	transform: translateY(6px);
 }
 
 body#tinymce {
-    margin: 15px;
+	margin: 15px;
 }
 
 @font-face {
-    font-family: 'FatFrank';
-    src: url('/fonts/FatFrank-Heavy.woff') format('woff2'),
-        url('/fonts/FatFrank-Heavy.woff') format('woff');
-    font-weight: 900;
-    font-style: normal;
-    font-display: swap;
+	font-family: "FatFrank";
+	src: url("/fonts/FatFrank-Heavy.woff") format("woff2"),
+		url("/fonts/FatFrank-Heavy.woff") format("woff");
+	font-weight: 900;
+	font-style: normal;
+	font-display: swap;
 }
-
 
 @font-face {
-    font-family: 'UTM Kabel KT';
-    src: url('/fonts/UTMKabelKT.woff2') format('woff2'),
-        url('/fonts/UTMKabelKT.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-    font-display: swap;
+	font-family: "UTM Kabel KT";
+	src: url("/fonts/UTMKabelKT.woff2") format("woff2"),
+		url("/fonts/UTMKabelKT.woff") format("woff");
+	font-weight: normal;
+	font-style: normal;
+	font-display: swap;
 }
-

@@ -11,19 +11,16 @@
 /*                           Common-Setting                                 */
 /*==========================================================================*/
 /* 基本タグのフォントサイズを指定（12px -> 120% or 1.2em ） */
+@import url("https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&family=Meow+Script&display=swap");
 :root {
   --content-width: 1260px;
-  --font-yugothic: "游ゴシック体", "Yu Gothic", YuGothic, sans-serif;
-  --font-yumincho: "游明朝", YuMincho, "ヒラギノ明朝 ProN W3", "Hiragino Mincho ProN", "HG明朝B", serif;
-  --font-meiryo: "Meiryo UI", Meiryo, メイリオ, Osaka, "MS PGothic", arial, helvetica, sans-serif;
-  --font-arial: Arial, Helvetica, sans-serif;
   --color-primary: #e00327;
   --color-secondary: #e00327;
   --color-black: #333333;
   --color-gray: #cccccc;
   --text-line-height: 1.8em;
-  --font-family: "Noto Sans JP", sans-serif;
-  --font-serif: "Noto Serif JP", serif;
+  --font-family: "Comfortaa", sans-serif;
+  --font-draw:"Meow Script", cursive;
   --font-xk: "UTM Kabel KT";
   --body-color: #333333;
 }
@@ -1212,12 +1209,15 @@ main {
   flex-direction: column;
   align-items: center;
   font-size: 30px;
+  margin-bottom: 20px;
 }
 .iDetail--info-name .firstName {
   position: relative;
-  font-size: 1em;
-  font-family: var(--font-family);
+  font-size: 1.4em;
+  font-family: var(--font-draw);
   color: #bebebe;
+  line-height: 1em;
+  margin-bottom: -5px;
 }
 .iDetail--info-name .firstName.ttu {
   text-transform: uppercase;
@@ -1226,6 +1226,7 @@ main {
   font-size: 2em;
   position: relative;
   text-transform: uppercase;
+  font-family: var(--font-xk);
 }
 .iDetail--info-list {
   position: relative;

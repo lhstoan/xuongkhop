@@ -384,11 +384,14 @@ main {
 			flex-direction: column;
 			align-items: center;
 			font-size: 30px;
+			margin-bottom: 20px;
 			.firstName {
 				position: relative;
-				font-size: 1em;
-				font-family: var(--font-family);
+				font-size: 1.4em;
+				font-family: var(--font-draw);
 				color: #bebebe;
+				line-height: 1em;
+				margin-bottom: -5px;
 				&.ttu {
 					text-transform: uppercase;
 				}
@@ -397,6 +400,7 @@ main {
 				font-size: 2em;
 				position: relative;
 				text-transform: uppercase;
+				font-family: var(--font-xk);
 			}
 		}
 		&-list {
