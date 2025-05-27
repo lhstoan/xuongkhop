@@ -1378,6 +1378,7 @@ main {
   position: relative;
   background-color: #111111;
   padding: 40px 0;
+  padding-bottom: 200px;
 }
 .iDetail--racket h4 {
   position: relative;
