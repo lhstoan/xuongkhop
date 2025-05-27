@@ -1146,6 +1146,19 @@ main {
 
 .iDetail {
   position: relative;
+  background-color: #f6f6f6;
+}
+.iDetail::before {
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 100%;
+  background-image: url(../../images/bgCard.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  top: 0;
+  left: 0;
+  opacity: 0.2;
 }
 .iDetail--wrap {
   position: relative;
@@ -1154,29 +1167,153 @@ main {
   --img: 320px;
   gap: 40px;
   padding: 40px 0;
+  align-items: center;
 }
 .iDetail--img {
   position: relative;
   text-align: center;
-  width: var(--img);
+  width: 30%;
+  border-radius: 100%;
+  background-image: url(../../images/bgCard.svg);
+  padding: 2px;
+  background-size: 200%;
+  background-position: center;
 }
-.iDetail--img img {
+.iDetail--img .img {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1/1;
+  overflow: hidden;
+  border-radius: 100%;
+}
+.iDetail--img .img img {
   max-height: 450px;
+  border-radius: inherit;
 }
 .iDetail--content {
   position: relative;
-  width: calc(100% - var(--img) - 40px);
+  width: 35%;
+}
+.iDetail--info {
+  position: relative;
+  width: 35%;
+}
+.iDetail--info-gender {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10px;
+  font-size: 20px;
+}
+.iDetail--info-name {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 30px;
+}
+.iDetail--info-name .firstName {
+  position: relative;
+  font-size: 1em;
+  font-family: var(--font-family);
+  color: #bebebe;
+}
+.iDetail--info-name .firstName.ttu {
+  text-transform: uppercase;
+}
+.iDetail--info-name .lastName {
+  font-size: 2em;
+  position: relative;
+  text-transform: uppercase;
+}
+.iDetail--info-list {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.iDetail--info-list dl {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 15px;
+}
+.iDetail--info-list dl dt {
+  position: relative;
+  font-size: 15px;
+  font-family: var(--font-family);
+  color: #bebebe;
+  text-transform: capitalize;
+}
+.iDetail--info-list dl dt span {
+  font-size: inherit;
+}
+.iDetail--info-list dl dd {
+  position: relative;
+  font-family: var(--font-xk);
+  font-size: 30px;
+}
+.iDetail--info-list dl dd span {
+  font-size: inherit;
+}
+.iDetail--info-list dl.group dt,
+.iDetail--info-list dl.group dd {
+  display: flex;
+  gap: 20px;
+  white-space: nowrap;
+  text-align: center;
+  width: 100%;
+  justify-content: center;
+}
+.iDetail--info-list dl.group span {
+  position: relative;
+  width: 140px;
+}
+.iDetail--info-list dl.group.col span {
+  width: 50%;
 }
 .iDetail--date {
+  width: 100%;
   position: relative;
 }
 .iDetail--date-main {
   position: relative;
+  width: 100%;
+  margin-bottom: 20px;
+}
+.iDetail--date-main dl {
   display: flex;
-  font-size: 30px;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+.iDetail--date-main dl dt {
+  position: relative;
+  font-size: 20px;
+  color: #717e89;
+  font-family: var(--font-family);
+}
+.iDetail--date-main dl dd {
+  position: relative;
+  display: flex;
+  justify-content: center;
   gap: 10px;
+  margin-top: 10px;
+  width: 100%;
+}
+.iDetail--date-main dl dd span {
+  position: relative;
+  border: 1px solid rgba(113, 126, 137, 0.1529411765);
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px 10px 5px;
+  text-align: center;
+  line-height: 1em;
+  font-size: 60px;
   font-family: var(--font-xk);
-  text-transform: uppercase;
 }
 .iDetail--link {
   position: relative;

@@ -88,20 +88,52 @@
 					<span>Song Toàn</span>
 				</div>
 				<div class="iDetail--wrap">
+					<div class="iDetail--info">
+						<!-- <div class="iDetail--info-gender">
+							<span>Nam</span>
+						</div> -->
+						<div class="iDetail--info-name">
+							<span class="firstName">Lê Huỳnh</span>
+							<span class="lastName">Song Toàn</span>
+						</div>
+						<div class="iDetail--info-list">
+							<dl class="group">
+								<dt><span>Chiều cao</span> <span>Cân Nặng</span><span>Tuổi</span></dt>
+								<dd><span>183cm</span><span>65kg</span><span>25T</span></dd>
+							</dl>
+							<dl class="group">
+								<dt><span>Quê Quán</span><span>Trạng Thái</span></dt>
+								<dd><span>Sóc Trăng</span><span>Độc Thân</span></dd>
+							</dl>
+							<dl class="group">
+								<dt><span>Tay Thuận</span><span>Chuyên</span></dt>
+								<dd><span>Tay Phải</span><span>Đánh Đôi</span></dd>
+							</dl>
+						</div>
+					</div>
 					<div class="iDetail--img">
-						<img src="images/HINH2.jpg" alt="">
+						<div class="img">
+							<img src="images/HINH2.jpg" alt="">
+						</div>
 					</div>
 					<div class="iDetail--content">
-						<div class="iDetail--info">
+						<div class="iDetail--diff">
 							<div class="iDetail--date">
 								<div class="iDetail--date-main">
-									<span class="icon"></span>
-									<span class="heading">Ngày Gia Nhập</span>
-									<span>01/02/2023</span>
+									<dl>
+										<dt>Ngày gia nhập</dt>
+										<dd>
+											<span class="day">01</span>
+											<span class="month">02</span>
+											<span class="year">2023</span>
+										</dd>
+									</dl>
 								</div>
-								<div class="iDetail--date-table">
-									<span>100 days</span>
-									<span>1 y 3 m</span>
+								<div class="iDetail--info-list" id="dayformember">
+									<dl class="group col">
+										<dt><span>Tổng số ngày</span><span>Khoảng thời gian</span></dt>
+										<dd><span>100</span><span>1 M 3 D</span></dd>
+									</dl>
 								</div>
 							</div>
 						</div>
@@ -198,6 +230,43 @@
 	<script src="./js/sweetlink.js"></script>
 	<script src="./js/common.js"></script>
 	<script src="./js/top.js"></script>
+
+	<script>
+		// Lấy ngày gia nhập từ HTML
+		const day = document.querySelector('.iDetail--date-main .day').textContent;
+		const month = document.querySelector('.iDetail--date-main .month').textContent;
+		const year = document.querySelector('.iDetail--date-main .year').textContent;
+
+		// Tạo đối tượng ngày gia nhập (lưu ý: tháng trong JS tính từ 0)
+		const joinedDate = new Date(year, month - 1, day);
+		const currentDate = new Date();
+
+		// Tính số ngày đã trôi qua
+		const msPerDay = 1000 * 60 * 60 * 24;
+		const diffInMs = currentDate - joinedDate;
+		const totalDays = Math.floor(diffInMs / msPerDay);
+
+		// Tính số năm, tháng, ngày chênh lệch
+		let years = currentDate.getFullYear() - joinedDate.getFullYear();
+		let months = currentDate.getMonth() - joinedDate.getMonth();
+		let days = currentDate.getDate() - joinedDate.getDate();
+
+		if (days < 0) {
+			months -= 1;
+			const prevMonth = new Date(currentDate.getFullYear(), currentDate.getMonth(), 0);
+			days += prevMonth.getDate();
+		}
+
+		if (months < 0) {
+			years -= 1;
+			months += 12;
+		}
+
+		// Hiển thị kết quả
+		const infoList = document.querySelector('#dayformember dd');
+		infoList.children[0].textContent = totalDays;
+		infoList.children[1].textContent = `${years} năm ${months} tháng ${days} ngày`;
+	</script>
 </body>
 
 </html>
